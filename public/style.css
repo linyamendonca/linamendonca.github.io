@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #393c3f;
+    height: 8vh;
+  }
+  
+  main {
+    background: url("../assets/imgs/inicio.jpg") no-repeat center center;
+    background-size: cover;
+    height: 92vh;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #393c3f;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+
+  .header {
+    height: 80px;
+    /* border-bottom = borda embaixo da div/classe */
+    /* solid é o tipo de borda que vai ser utilizada */
+    border-bottom: 2px solid #e3121a;
+}
+
+.container {
+    display: flex;
+    /* alterar a posição dos elementos de forma flexível */
+    width: 80%;
+    margin: auto;
+}
+
+.header .container {
+    /* separar os campos do container de forma flexivel que esteja dentro do header */
+    justify-content: space-between;
+
+    align-items: center;
+    height: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: #bbac81;
+}
+
+.navbar {
+    /* tirar as bolinhas do lado do nome */
+    list-style-type: none;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    /* espaçamento horizontal*/
+    color: #bbac81;
+}
+
+.titulo {
+    color: #e3121a;
+    font-weight: 500;
+}
+
+.banner {
+    background-image: url('../assets/imgs/s.contexto.jpg');
+    height: 500px;
+    color: #ffffff;
+    background-size: auto;
+    height: 92vh;
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.banner .container p {
+    font-size: 35px;
+    width: 25%;
+}
+
+.banner .container span {
+    font-weight: 800;
+}
+
+.social {
+    background-color: #94865f;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social .container {
+    width: 90%;
+}
+
+.social .container .boxes {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.social .container .boxes p {
+    width: 400px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box img {
+    width: 170px;
+}
+
+.box h4 {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #e3121a;
+    height: 100px ;
+    color: #e5e5e5;
+    display: flex;
+}
+
+.footer .container {
+    justify-content: center;
+    text-align: center;
+}
+
+.version {
+    font-size: 12px;
+    height: auto;
+}
+
+
+/* TELA DE LOGIN E CADASTRO*/
+
+.login {
+    height: 500px;
+    background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+}
+
+.login .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card {
+    width: 50%;
+    background-color: #94865f;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    color: palevioletred;
+    padding: 10px 0px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.formulario {
+    display: flex;
+    height: 90%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.formulario .span {
+    font-size: 15px; 
+    font-weight: bold;
+    }
+
+.formulario input {
+    border: 2px solid #e3121a;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0;
+    height: 25px;
+    }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+
+.botao {
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #e5e5e5;
+    background-color: #e3121a;
+    width: 120px;
+    height: 40px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+
