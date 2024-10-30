@@ -5,47 +5,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>RapNacional</title>
 
-  <link rel="stylesheet" href="/public/style/style.css">
-  <!-- <link rel="icon" href="assets/icon/favicon2.ico"> -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="/style/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <nav>
-      <a class="logo" href="/public/index.html">RapNacional</a>
+  <header id="header">
+    <nav class="container flex">
+      <a href="index.html">
+        <!-- <img src="./assets/imgs/fones-icon.png" alt="Icone"> -->
+      </a>
       <ul class="nav-list">
-        <li><a href="#">Início</a></li>
-        <li><a href="sobre-racionais.html">Sobre Racionais Mc's</a></li>
-        <li><a href="sobre-sabotage.html">Sobre Sabotage</a></li>
-        <li><a href="quiz.html">Quiz</a></li>
-        <li><a href="quiz.html">|</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="#">HOME</a></li>
+        <li><a href="sobre-racionais.html">SOBRE RACIONAIS MC'S</a></li>
+        <li><a href="sobre-sabotage.html">SOBRE SABOTAGE</a></li>
+        <li><a href="quiz.html">QUIZ</a></li>
       </ul>
+      <div class="btn-login">
+        <a href="login.html"><button>LOGIN</button></a>
+      </div>
+      <div class="btn-cadastro">
+        <a href="cadastro.html"><button>CADASTRO</button></a>
+      </div>
     </nav>
   </header>
-  <main>
-    <div class="inicio"></div>
-  </main>
+
   <div class="contexto">
-    <!-- <img src="./assets/imgs/missao.png"> -->
+    <img src="./assets/imgs/missao.png">
     <h3>Contextualizando</h3>
     <p>O Rap nacional surgiu na década de 1990 e ganhou força com a atenção da indústria fonográfica e das rádios,
-      ultrapassou as barreiras de classe, cor e gênero, passando a ser cultuado em programas de rádio e TV. <br>
-      Através de suas letras pode-se comunicar com diversas classes, principalmente as classes sociais mais baixas. Se
-      conectando com o público em sua maioria periférica.</p>
+      ultrapassou as barreiras de classe, cor e gênero, passando a ser cultuado em programas de rádio e TV.
+    </p>
   </div>
 
-  <div class="footer">
+  <footer class="footer">
     <div class="container">
       <h4>Feito com amor por aluno &hearts; SPTech &copy; 2024</h4>
       <span class="version">v1.0.0</span>
     </div>
-  </div>
+  </footer>
 </body>
 
 </html>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      var header = document.querySelector('#header');
+      header.classList.toggle('rolagem', window.scrollY > 0);
+    });
+  </script>
+
