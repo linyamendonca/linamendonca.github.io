@@ -5,43 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style2.css">
     <script src="index.js"></script>
 </head>
 <body>
-    
-<form class="form">
-    <p class="title">Registre-se </p>
-    <p class="message">Cadastre-se agora e acesse nosso site por completo. </p>
-        <div class="flex">
-        <label>
-            <input class="input" type="text" placeholder="" required="">
-            <span>Nome Completo</span>
-        </label>
 
-        <label>
-            <input class="input" type="date" placeholder="" required="">
-            <span>Nascimento</span>
-        </label>
-    </div>  
-            
-    <label>
-        <input class="input" type="email" placeholder="" required="">
-        <span>Email</span>
-    </label> 
-        
-    <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Senha</span>
-    </label>
-    <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Confirme a senha</span>
-    </label>
-    <button class="submit">Registar</button>
-    <p class="signin">Já possui conta? <a href="login.html">Login</a> </p>
-</form>
+<div class="container">
+    <form class="form" action="">
+      <p class="title">Registre-se </p>
+      <p class="message">Cadastre-se agora e acesse nosso site por completo. </p>
 
+      <input placeholder="Nome" class="nome input" type="text" />
+
+      <input placeholder="Email" class="email input" type="text" />
+      <input placeholder="nascimento" class="dtNascimento input" type="date" />
+      <input placeholder="Senha" class="senha input" type="password" />
+      <input placeholder="Confirme a senha" class="confirmeSenha input" type="password" />
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </div>
 
 </body>
 </html>

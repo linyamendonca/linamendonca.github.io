@@ -140,7 +140,7 @@ header.rolagem .nav-list li a {
   background-color: #e31219b7;
 }
 
-.message, 
+.message,
 .signin {
   font-size: 14.5px;
   color: rgba(255, 255, 255, 0.7);
@@ -178,7 +178,7 @@ header.rolagem .nav-list li a {
   border-radius: 10px;
 }
 
-.form label .input + span {
+.form label .input+span {
   color: rgba(255, 255, 255, 0.5);
   position: absolute;
   left: 10px;
@@ -188,13 +188,13 @@ header.rolagem .nav-list li a {
   transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown + span {
+.form label .input:placeholder-shown+span {
   top: 12.5px;
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,
-.form label .input:valid + span {
+.form label .input:focus+span,
+.form label .input:valid+span {
   color: #e31219b7;
   top: 0px;
   font-size: 0.7em;

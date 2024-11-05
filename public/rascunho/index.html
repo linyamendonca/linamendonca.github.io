@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RapNacional</title>
 
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="style/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
@@ -41,19 +41,19 @@
   </div>
 
   <footer class="footer">
-    <div class="container">
+    <div class="oi">
       <h4>Feito com amor por aluno &hearts; SPTech &copy; 2024</h4>
       <span class="version">v1.0.0</span>
     </div>
   </footer>
 </body>
 
+<script>
+  window.addEventListener('scroll', function () {
+    var header = document.querySelector('#header');
+    header.classList.toggle('rolagem', window.scrollY > 0);
+  });
+
+</script>
+
 </html>
-
-  <script>
-    window.addEventListener('scroll', function () {
-      var header = document.querySelector('#header');
-      header.classList.toggle('rolagem', window.scrollY > 0);
-    });
-  </script>
-
