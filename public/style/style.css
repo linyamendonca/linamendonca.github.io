@@ -647,10 +647,11 @@ body.cadastro_page .navbar {
 /* ESTILIZAÇÃO SOBRE/ TIME */
 
 .container-time {
-    background-color: #ff9800;
-    height: 1200px;
+    background-color: #f8eaea;
+    height: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(1, 50, 32);
     padding-top: 60px;
@@ -658,22 +659,21 @@ body.cadastro_page .navbar {
     padding-right: 64px;
 }
 
-
 .card-time {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px; /* Espaço entre os cards */
     width: 100%;
-    height: 480px;
 }
 
 .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 20px;
-    width: 33.3%;
+    width: 80%; /* Ajusta a largura dos cards */
+    max-width: 800px;
     padding-top: 60px;
-    transform: scale(0.9)
+    transform: scale(0.9);
 }
 
 .card span {
@@ -694,4 +694,3 @@ body.cadastro_page .navbar {
     padding: 40px;
     width: 80%;
 }
-
