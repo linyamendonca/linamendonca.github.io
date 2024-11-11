@@ -41,7 +41,7 @@ body {
     width: 40px;
     height: 40px;
     object-fit: contain;
-    margin-right: 15px; /* Adiciona um pequeno espaçamento à direita */
+    margin-right: 15px;
 }
 
 .titulo {
@@ -50,8 +50,7 @@ body {
 
 .banner {
     display: flex;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("https://i.pinimg.com/564x/fe/f0/52/fef0525efbfa0c540bf54276748bf789.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
     background-position: 70% 20%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -59,7 +58,7 @@ body {
     justify-content: end;
     height: 350px;
     color: #F9F9F7;
-    padding-top: 60px
+    padding-top: 60px;
 }
 
 .banner-container {
@@ -73,12 +72,26 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+.banner {
+    background-image: url('/public/assets/imgs/albuns.png');
+    background-size: cover;
+    background-position: end-center;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
 .conteudo {
-    background-color: #393C3F;
+    background-color: #393c3f66;
     display: flex;
     flex-direction: row;
-    height: 640px;
+    height: 900px;
     padding: 40px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
 }
 
 .conteudo-container {
@@ -87,6 +100,7 @@ body {
     margin: 20px;
     padding-left: 35px;
     width: 50%;
+    height: 50%;
     text-align: justify;
 }
 
@@ -145,16 +159,23 @@ body {
 .imagem2 {
     display: flex;
     width: 50%;
+    align-items: center;
 }
 .imagem2 img {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     height: 600px;
     width: 100%;
+    align-self: center;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 200px;
-    border-top-right-radius: 200px;
+    border-top-right-radius: 10px;
     transform: scale(0.8);
+}
+
+.button .button-saibamais {
+    border-radius: 35px;
+
 }
 
 .button-home {
@@ -175,9 +196,11 @@ body {
     cursor: pointer;
     transition-duration: 0.4s;
     transition-timing-function: ease-in-out;
-    width: 300px;
+    width: 250px;
     height: 60px;
     margin: 20px;
+    border-radius: 15px;
+    align-items: center;
 }
 
 .flex {
@@ -192,11 +215,10 @@ body {
     gap: 30px;
 }
 
-/* Ajusta a posição dos botões de Login e Cadastro */
 .buttons-container {
     display: flex;
     gap: 10px;
-    margin-left: auto; /* Move para o lado direito da navbar */
+    margin-left: auto;
 }
 
 .buttons-container button {
@@ -458,14 +480,24 @@ main.conteudo label {
     background-color: #808080;
   }
   
-  .container {
+  .container-lc {
     margin: 30px auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .conteudo-login {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .form {
+  .form-cadastro {
     width: 500px;
     height: 650px;
     background-image: linear-gradient(to bottom, #424242, #212121);
@@ -475,15 +507,15 @@ main.conteudo label {
     border-radius: 0.5rem;
   }
 
-  .form #form-login {
-    width: 400px;
-    height: 400px;
-    background-image: linear-gradient(to bottom, #424242, #212121);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 0.5rem;
-  }
+    .form-login {
+        width: 500px;
+        height: 500px;
+        background-image: linear-gradient(to bottom, #424242, #212121);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 0.5rem;
+      }
   
   .title {
     color: #fefbf6;
@@ -567,6 +599,9 @@ main.conteudo button[type="submit"] {
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow:
+    0 0 10px antiquewhite,
+    0 0 10px antiquewhite;
 }
 
 main.conteudo button[type="submit"]:hover {
@@ -657,6 +692,7 @@ body.cadastro_page .navbar {
     padding-top: 60px;
     padding-left: 64px;
     padding-right: 64px;
+    border-top-right-radius: 100px;
 }
 
 .card-time {
