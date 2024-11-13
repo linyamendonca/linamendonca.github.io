@@ -15,15 +15,172 @@
       <p class="title">Registre-se </p>
       <p class="message">Cadastre-se agora e acesse nosso site por completo. </p>
 
-      <input placeholder="Nome" class="nome input" type="text" />
-
-      <input placeholder="Email" class="email input" type="text" />
-      <input placeholder="nascimento" class="dtNascimento input" type="date" />
-      <input placeholder="Senha" class="senha input" type="password" />
-      <input placeholder="Confirme a senha" class="confirmeSenha input" type="password" />
-      <button class="btn" type="submit">Cadastrar</button>
+      <input placeholder="Nome" id="inNome" class="nome input" type="text" />
+      <input placeholder="Email" id="inEmail" class="email input" type="text" />
+      <input placeholder="nascimento" id="inDtNasc" class="dtNascimento input" type="date" />
+      <input placeholder="Senha" id="inSenha" class="senha input" type="password" />
+      <input placeholder="Confirme a senha" id="inConfirmeSenha" class="confirmeSenha input" type="password" />
+      <button class="btn" onclick="cadastrar()" type="submit">Cadastrar</button>
     </form>
   </div>
 
 </body>
 </html>
+<script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = inNome.value;
+    var emailVar = inEmail.value;
+    var senhaVar = inSenha.value;
+    var confirmacaoSenhaVar = inConfirmeSenha.value;
+    var dtNascVar = inDtNasc.value;
+
+    // criando as variáveis dos tamanhos dos campos
+    var tamNome = nomeVar.length;
+    var tamSenha = senhaVar.length;
+
+    // verificar se há @ no email
+    var arrobaEmail = emailVar.includes('@');
+    var pontoEmail = emailVar.includes('.');
+
+    if (tamNome < 1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O campo nome precisa possuir ao menos 1 caractere)";
+
+      finalizarAguardar();
+      return false;
+
+    } else if (tamSenha < 6) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O campo senha precisa possuir ao menos 6 caracteres.)";
+
+      finalizarAguardar();
+      return false;
+
+    } else if (arrobaEmail == false || pontoEmail == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(O campo E-mail precisa possuir o caracter especial @ e . (ponto final))";
+
+      finalizarAguardar();
+      return false;
+
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "As senhas precisam coincidir";
+
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      dtNascVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // // Verificando se o código de ativação é de alguma empresa cadastrada
+    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        dtNascServer: dtNascVar
+
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  // Listando empresas cadastradas 
+  // function listar() {
+  //   fetch("/empresas/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resposta) {
+  //       resposta.json().then((empresas) => {
+  //         empresas.forEach((empresa) => {
+  //           listaEmpresasCadastradas.push(empresa);
+
+  //           console.log("listaEmpresasCadastradas")
+  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
