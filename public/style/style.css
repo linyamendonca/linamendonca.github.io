@@ -14,60 +14,75 @@ body {
 }
 
 nav {
+    position: absolute;
+    font-family: "Grenze Gotisch", serif;
     display: flex;
     justify-content: space-around;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 25px;
     align-items: center;
-    color: #202020;
-    font-size: bold;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 1px 5px;
+    z-index: 10; 
+    width: 100%;
 }
 
-.logo {
-    font-weight: 800;
+
+.nav-itens {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-itens li {
+    margin-right: 30px; /* Espaço entre os itens */
+}
+
+.nav-itens li a {
+    color: white;
+    text-decoration: none;
     font-size: 25px;
 }
 
-.nav-itens {
-    list-style: none;
+.nav-itens li a:hover {
+    text-decoration: underline; /* Exemplo de efeito hover */
+}
+
+.btn-nav a {
+    margin-left: 10px; /* Distância entre os botões de login e cadastro */
+}
+
+.logo {
     display: flex;
-    font-size: 19px;
+    height: 70px;
 }
-
-.nav-itens>li>a {
-    padding-left: 20px;
-    color: #202020;
-    text-decoration: none;
-
-}
-
 .login {
-    padding: 15px 40px;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    color: #202020;
-    background-color: #b4b2b293;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-}
-
-.cadastro {
-    padding: 15px 40px;
+    padding: 10px 40px;
     font-size: 15px;
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #3d3d3d;
-    font-family: 'Poppins', sans-serif;
+    background-color: #b4b2b293;
+    font-family: "Grenze Gotisch", serif;
+    cursor: pointer;
+}
+
+.cadastro {
+    font-family: "Grenze Gotisch", serif;
+    padding: 10px 40px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #b4b2b293;
     cursor: pointer;
     transition: 1s background;
 }
 
 .cadastro:hover,
 .login:hover {
-    color: #808080;
-    background-color: #090909;
+    color: rgb(104, 104, 104);
+    background-color: whitesmoke;
     transition: 1s background;
 }
 
@@ -83,35 +98,35 @@ nav {
     background-size: cover;
     align-items: center;
     justify-content: center;
-    height: 550px;
     color: #9b4a4a;
-}
-
-.banner img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    overflow: hidden; /* Esconde o que ultrapassar os limites */
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .banner {
-    background-color: white;
-    background-image: url(/public/assets/imgs/sabota.jpg);
     display: flex;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: #ffffff;
-    /* padding-top: 20px; */
-    border-end-end-radius: 100px;
-    border-end-start-radius: 100px;
+    width: 100%; /* Garante que a largura do contêiner seja o dobro da largura da tela */
+    animation: move-carousel 10s linear infinite; /* Animação contínua */
 }
 
+.banner img {
+    width: 100%; /* Cada imagem ocupa 50% da largura da tela */
+}
+
+@keyframes move-carousel {
+    0% {
+        transform: translateX(0); /* Começa com a primeira imagem à vista */
+    }
+    49% {
+        transform: translateX(-50%); /* A primeira imagem começa a sair da tela */
+    }
+    50% {
+        transform: translateX(-50%); /* Nesse ponto, a segunda imagem aparece */
+    }
+    100% {
+        transform: translateX(-100%); /* A primeira imagem já saiu e a segunda já entrou completamente */
+    }
+}
 /* FIM DO BANNER INICIAL*/
 
 /* INICIO SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
@@ -125,14 +140,14 @@ nav {
 .banner-container p {
     margin: 5px 5px;
     color: firebrick;
-    font-family: 'Poppins', sans-serif;
-    font-size: 36px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1px;
     text-align: left;
 
 }
 
 .fundo-conteudo {
-    background-color: #ffffff;
+    background-color: #202020;
     display: flex;
     flex-direction: row;
     height: 900px;
@@ -150,7 +165,7 @@ nav {
 
 .conteudo {
     justify-content: space-between;
-    background-color: #ffffff;
+    background-color: #202020;
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -163,6 +178,7 @@ nav {
     font-weight: 100;
     font-style: medium;
     background-color: #202020;
+    border: whitesmoke;
     display: flex;
     color: white;
     flex-direction: row;
@@ -277,8 +293,133 @@ nav {
 /* FIMMMM TELA INICIAL HOME */
 
 /*INICIO SOBRE RACIONAIS*/
+.banner-fundoR {
+    position: relative;
+    display: flex;
+    background-color: #f0f0f0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+    color: #9b4a4a;
+}
+
+
+.bannerR img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95vh;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.bannerR {
+    background-color: #202020;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: #ffffff;
+    /* padding-top: 20px; */
+    border-end-end-radius: 100px;
+    border-end-start-radius: 100px;
+}
+.banner-containerR {
+    align-items: center;
+    width: 60%;
+    border-end-end-radius: 120px;
+    border-end-start-radius: 120px;
+}
+
+.banner-containerR p {
+    margin: 5px 5px;
+    color: firebrick;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    text-align: left;
+
+}
+/* Container do Carrossel */
+.banner-fundoR2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #202020; /* Ajuste conforme sua necessidade */
+}
+
+/* Container geral para os cards */
+.banner-integrantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020; /* Ajuste conforme necessário */
+    height: 400px; /* Aumente esse valor conforme necessário */
+    width: 100%;
+}
+
+/* Container de todos os cards */
+.cards-container {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os cards */
+    gap: 10px; /* Espaço entre os cards */
+}
+
+/* Estilo individual dos cards */
+.card-manos {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+/* Imagem dentro dos cards */
+.card-manos img {
+    width: 100%; /* A imagem ocupa toda a largura do card */
+    height: auto; /* Ajusta a altura da imagem para manter a proporção */
+    border-radius: 8px;
+}
+
+/* Texto abaixo da imagem */
+.card-manos p {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+/* Efeito de hover nos cards */
+.card-manos:hover {
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.fundo-racionais {
+    background-color: white;
+    position: relative;
+    display: flex;
+    background-color: #202020;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+    color: #9b4a4a;
+}
+
 .racionais {
-    height: 1000PX;
+    height: 600PX;
     width: 100%;
     padding: 85PX;
     background-color: #202020;
@@ -301,14 +442,14 @@ nav {
     background-color: #202020;
     color: white;
     font-family: "Roboto", sans-serif;
-    font-size: 25px;
+    font-size: 18px;
     font-style: medium;
     justify-content: flex-start;
 }
 
 .texto-rac h1 {
     background-color: #202020;
-    color: white;
+    color: #f3ce5b;
     font-family: "Roboto", sans-serif;
     font-size: 35px;
     font-style: medium;
@@ -317,59 +458,57 @@ nav {
 }
 
 
-
-
-
-.container-time {
-    background-color: #f8eaea;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(1, 50, 32);
-    padding-top: 60px;
-    padding-left: 64px;
-    padding-right: 64px;
-    border-top-right-radius: 100px;
+#discos {
+    background-color: #f0f0f0;
+    padding: 20px;
 }
 
-.card-time {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    /* Espaço entre os cards */
-    width: 100%;
+#discos h1 {
+    text-align: center;
+    padding-top: 30px;
+    font-family: "Grenze Gotisch", serif;
+    font-size: 32px;
+
+}
+
+.containerS {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
 }
 
 .card {
+    background-color: #f0f0f0; 
+    border: 5px solid #202020; 
+    border-radius: 10px;
+    padding: 15px;
     display: flex;
-    flex-direction: row;
-    padding: 20px;
-    width: 80%;
-    /* Ajusta a largura dos cards */
-    max-width: 800px;
-    padding-top: 60px;
-    transform: scale(0.9);
+    align-items: center;
+    justify-content: space-between;
 }
 
-.card span {
-    padding-top: 25px;
-    font-size: 24px;
-    font-weight: bold;
+.textoS {
+    flex: 1;
+    margin-right: 20px;
 }
 
-.card img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    align-self: center;
+.album1 img {
+    width: 200px;
+    border-radius: 8px; 
 }
 
-.texto-card {
-    padding: 40px;
-    width: 80%;
+
+/* icones do spotify na parte dos albuns*/
+.spotify-link {
+    color: #000; /* Cor preta */
+    font-size: 15px; /* Tamanho do ícone */
+    text-decoration: none;
+}
+
+.spotify-text {
+    color: #000; /* Cor preta */
+    margin-top: 8px; /* Espaçamento entre o ícone e o texto */
+    font-size: 16px; /* Tamanho da fonte */
 }
 
 /* FIMMM SOBRE RACIONAIS*/
@@ -377,49 +516,64 @@ nav {
 
 /* INICIO FOOTER */
 .footer {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(0, 0, 0);
-    height: 150px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    font-size: 15px;
+    background-color: #2c2f33;
+    color: #f5f5f5;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 4px solid #dfe2eb;
 }
 
 .footer .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.fale-conosco {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.fale-conosco p {
-    padding-top: 15px;
-    font-size: 18px;
-    margin: 0;
-}
-
-.a-fale-conosco {
-    text-decoration: none;
-    color: inherit;
+.titulo {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #cc383d;
 }
 
 .redes-footer {
-    align-self: flex-start;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.redes-footer p, .redes-footer .h4 {
+    margin: 5px 0;
+}
+
+.redes-footer a {
+    color: #cc383d;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.redes-footer a:hover {
+    color: #f5f5f5;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #cc383d;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f5f5f5;
 }
 
 .copyright {
-    display: flex;
-    align-items: end;
-
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
 }
+
 
 /* LOGIN E CADASTRO */
 ::selection {
@@ -528,122 +682,8 @@ nav {
         flex-direction: column;
     }
 }
-
 /* FIMM ESTILO LOGIN E CADASTRO*/
 
-
-/* é nesse aqui pra fazer a validação em vermelho*/
-main.conteudo .input {
-    width: 95%;
-    padding: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(47, 58, 78, 0.948);
-    color: #ffffffd9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-main.conteudo .subcontainer {
-    display: flex;
-}
-
-main.conteudo .subcontainer input {
-    /* width: 95%; */
-    padding: 12px;
-    margin-bottom: 5px;
-    margin: 10px;
-    background-color: rgba(47, 58, 78, 0.948);
-    color: #ffffffd9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-main.conteudo button[type="submit"] {
-    display: inline-block;
-    background-color: #F9F9F7;
-    color: #2F3A4E;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow:
-        0 0 10px antiquewhite,
-        0 0 10px antiquewhite;
-}
-
-main.conteudo button[type="submit"]:hover {
-    background-color: #2F3A4E;
-    color: #F9F9F7;
-}
-
-
-#divError {
-    color: #ffffff;
-
-    divErrorLogin {
-        color: #ffffff;
-
-        main.conteudo p {
-            margin: 2px;
-            font-size: 14px;
-        }
-    }
-}
-
-main.conteudo a {
-    text-decoration: none;
-    color: #ff9800;
-    transition: color 0.3s ease-in-out;
-}
-
-main.conteudo a:hover {
-    color: #333;
-}
-
-.container-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-
-
-}
-
-#button_login,
-#button_cadastro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ff9800;
-    border: none;
-    color: #393C3F;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    width: 200px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#button_login:hover,
-#button_cadastro:hover {
-    background-color: #303a4e;
-    color: #ff9800;
-    font-weight: bold;
-}
-
-.span_center {
-    margin: 30px;
-    width: 100%;
-    font-weight: bolder;
-    color: white;
-}
 
 /* retirar navbar da tela de login e cadastro
 body.login-page .navbar,
