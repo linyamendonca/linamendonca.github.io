@@ -2,34 +2,55 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="style/style.css">
-    <script src="index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="index.js"></script>
 </head>
+
 <body>
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
 
-<div class="container-lc">
-    <form class="form-cadastro" action="">
-      <p class="title">Registre-se </p>
-      <p class="message">Cadastre-se agora e acesse nosso site por completo. </p>
+    <div class="container-lc">
+      <div class="conteudo-cadastro">
+        <form class="form-cadastro" action="">
+          <p class="title">Registre-se </p>
+          <p class="message">Cadastre-se agora e acesse nosso site por completo. </p>
 
-      <input placeholder="Nome" id="inNome" class="nome input" type="text" />
-      <input placeholder="Email" id="inEmail" class="email input" type="text" />
-      <input placeholder="nascimento" id="inDtNasc" class="dtNascimento input" type="date" />
-      <input placeholder="Senha" id="inSenha" class="senha input" type="password" />
-      <input placeholder="Confirme a senha" id="inConfirmeSenha" class="confirmeSenha input" type="password" />
-      <button class="btn" onclick="cadastrar()" type="submit">Cadastrar</button>
-    </form>
-  </div>
+          <input placeholder="Nome" id="inNome" class="nome input" type="text" />
+
+          <input placeholder="Email" id="inEmail" class="email input" type="text" />
+
+          <input placeholder="nascimento" id="inDtNasc" class="dtNascimento input" type="date" />
+
+          <input placeholder="Senha" id="inSenha" class="senha input" type="password" />
+
+          <input placeholder="Confirme a senha" id="inConfirmeSenha" class="confirmeSenha input" type="password" />
+
+          <button class="btn" onclick="cadastrar()" type="button">Cadastrar</button> <br><br>
+
+          <p style="color: whitesmoke" class="mensagem-cadastro">Já possui conta? <a style="color:gray"
+              href="login.html">Faça login</a></p>
+
+        </form>
+      </div>
+
+      <div id="div_aguardar" class="loading-div">
+        <!-- <img src="./assets/circle-loading.gif" id="loading-gif"> -->
+      </div>
+      <div id="divErrorLogin"></div>
+      <div id="div_erros_login"></div>
+
+    </div>
 
 </body>
+
 </html>
 <script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
 
   function cadastrar() {
     // aguardar();
@@ -50,42 +71,6 @@
     var arrobaEmail = emailVar.includes('@');
     var pontoEmail = emailVar.includes('.');
 
-    if (tamNome < 1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(O campo nome precisa possuir ao menos 1 caractere)";
-
-      finalizarAguardar();
-      return false;
-
-    } else if (tamSenha < 6) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(O campo senha precisa possuir ao menos 6 caracteres.)";
-
-      finalizarAguardar();
-      return false;
-
-    } else if (arrobaEmail == false || pontoEmail == false) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(O campo E-mail precisa possuir o caracter especial @ e . (ponto final))";
-
-      finalizarAguardar();
-      return false;
-
-    } else if (senhaVar != confirmacaoSenhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "As senhas precisam coincidir";
-
-      finalizarAguardar();
-      return false;
-
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
@@ -96,26 +81,55 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Preencha todos os campos.";
 
+      setTimeout(sumirMensagem, 3000)
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
-    // // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
+    
+    if (tamNome < 2) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "O campo nome precisa possuir ao menos 2 caracteres.";
+      
+      setTimeout(sumirMensagem, 3000)
+      finalizarAguardar();
+      return false;
+
+    } else if (tamSenha < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "O campo senha precisa possuir 8 caracteres, com ao menos uma letra minuscula, uma letra maiúscula, um número e um símbolo.";
+
+      setTimeout(sumirMensagem, 3000)
+      finalizarAguardar();
+      return false;
+
+    } else if (arrobaEmail == false || pontoEmail == false) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "O campo e-mail precisa possuir arroba e ponto final.";
+
+      setTimeout(sumirMensagem, 3000)
+      finalizarAguardar();
+      return false;
+
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "As senhas não coincidem.";
+
+      setTimeout(sumirMensagem, 3000)
+      finalizarAguardar();
+      return false;
+
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -140,7 +154,7 @@
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            "<p style:'color: green'>Cadastro realizado com sucesso! Redirecionando para tela de Login...</p>";
 
           setTimeout(() => {
             window.location = "login.html";
@@ -149,7 +163,7 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw "<p style:'color:red'>Houve um erro ao tentar realizar o cadastro! </p>";
         }
       })
       .catch(function (resposta) {
@@ -159,26 +173,6 @@
 
     return false;
   }
-
-  // Listando empresas cadastradas 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresasCadastradas.push(empresa);
-
-  //           console.log("listaEmpresasCadastradas")
-  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
 
   function sumirMensagem() {
     cardErro.style.display = "none";

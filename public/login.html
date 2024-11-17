@@ -8,115 +8,120 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="index.js"></script>
 </head>
+
 <body>
+    <div class="container-lc">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+            <div class="conteudo-login">
+                <form class="form-login" action="">
+                    <p class="title">Login</p>
+                    <p class="message">É bom ter você aqui de novo! </p>
 
-<div class="container-lc">
-  <div class="conteudo-login">
-    <form class="form-login" action="">
-      <p class="title">Login</p>
-      <p class="message">É bom ter você aqui de novo! </p>
+                    <input placeholder="Email" class="email input" id="inEmail" type="text" />
 
-      <input placeholder="Email" class="email input" type="text" />
-   
-      <input placeholder="Senha" class="senha input" type="password" />
-      
-      <button class="btn" onclick="entrar()" type="submit">Login</button>
+                    <input placeholder="Senha" class="senha input" id="inSenha" type="password" />
 
 
-    </form>
-  </div>
-  </div>
+                    <div id="divErrorLogin"></div>
+
+                    <button class="btn" type="button" onclick="entrar()" >Login</button> <br><br>
+
+                    <p style="color: whitesmoke" class="mensagem-cadastro">Ainda não tem conta? <a style="color:gray"
+                            href="cadastro.html">Cadastre-se</a></p>
+
+                            <div id="div_aguardar" class="loading-div">
+                                <!-- <img src="./assets/circle-loading.gif" id="loading-gif"> -->
+                            </div>
+            
+                            <div id="div_erros_login"></div>
+                </form>
+
+             
+            </div>
+</div>
 
 </body>
+
 </html>
 
 <script>
 
 
-  function entrar() {
-      aguardar();
+    function entrar() {
+        aguardar();
 
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
+        var emailVar = inEmail.value;
+        var senhaVar = inSenha.value;
 
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos.";
 
-      var tamSenha = senhaVar.length;
+            setTimeout(sumirMensagem, 3000)
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000);
+        }
 
-      // verificar se há @ no email
-      var arrobaEmail = emailVar.includes('@');
-      var pontoEmail = emailVar.includes('.');
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
-      if (emailVar == "" || senhaVar == "") {
-          cardErro.style.display = "block"
-          mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-          // finalizarAguardar();
-          return false;
-      } else if (arrobaEmail == false || pontoEmail == false) {
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML =
-              "(O campo E-mail precisa possuir o caracter especial @ e . (ponto final))";
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+            console.log(resposta)
+            if (resposta.ok) {
+                console.log(resposta);
 
-          // finalizarAguardar();
-          return false;
-      } else if (tamSenha < 6) {
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML =
-              "(O campo senha precisa possuir ao menos 6 caracteres.)";
-      } else {
-          setInterval(sumirMensagem, 5000)
-      }
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
 
-      console.log("FORM LOGIN: ", emailVar);
-      console.log("FORM SENHA: ", senhaVar);
+                    setTimeout(function () {
+                        window.location = "./quiz.html";
+                    }, 1000); // apenas para exibir o loading
 
-      fetch("/usuarios/autenticar", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-              emailServer: emailVar,
-              senhaServer: senhaVar
-          })
-      }).then(function (resposta) {
-          console.log("ESTOU NO THEN DO entrar()!")
+                });
 
-          if (resposta.ok) {
-              console.log(resposta);
+            } else {
 
-              resposta.json().then(json => {
-                  console.log(json);
-                  console.log(JSON.stringify(json));
-                  sessionStorage.EMAIL_USUARIO = json.email;
-                  sessionStorage.NOME_USUARIO = json.nome;
-                  sessionStorage.ID_USUARIO = json.id;
-                  sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                console.log("Houve um erro ao tentar realizar o login!");
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "E-mail ou senha inválidos. Tente novamente";
 
-                  setTimeout(function () {
-                      window.location = "./dashboard/cards.html";
-                  }, 1000); // apenas para exibir o loading
+                setTimeout(sumirMensagem, 3000);
+                finalizarAguardar();
 
-              });
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
 
-          } else {
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
-              console.log("Houve um erro ao tentar realizar o login!");
+        return false;
+    }
 
-              resposta.text().then(texto => {
-                  console.error(texto);
-                  // finalizarAguardar(texto);
-              });
-          }
-
-      }).catch(function (erro) {
-          console.log(erro);
-      })
-
-      return false;
-  }
-
-  function sumirMensagem() {
-      cardErro.style.display = "none"
-  }
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 
 </script>

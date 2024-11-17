@@ -31,13 +31,14 @@ nav {
 .nav-itens {
     list-style: none;
     display: flex;
+    font-size: 19px;
 }
 
 .nav-itens>li>a {
     padding-left: 20px;
     color: #202020;
     text-decoration: none;
-    
+
 }
 
 .login {
@@ -63,90 +64,113 @@ nav {
     transition: 1s background;
 }
 
-.cadastro:hover, .login:hover{
+.cadastro:hover,
+.login:hover {
     color: #808080;
     background-color: #090909;
     transition: 1s background;
 }
 
+/* FIM DA NAVBAR*/
+
+/* INICIO DO BANNER INICIAL*/
 .banner-fundo {
+    background-color: white;
+    position: relative;
     display: flex;
-    background-color: #dcd9d9;
+    background-color: #202020;
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
-    height: 350px;
+    height: 550px;
     color: #9b4a4a;
-    
-
 }
 
-/* .banner {
-    display: flex;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-    background-position: 70% 20%;
-    background-color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    color: #ffffff;
-    padding-top: 20px;
-    border-end-end-radius: 100px;
-    border-end-start-radius: 100px;
-} */
+    height: 100%;
+    object-fit: cover;
+}
 
 .banner {
-    display: flex;
     background-color: white;
+    background-image: url(/public/assets/imgs/sabota.jpg);
+    display: flex;
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Adapta a altura para ocupar 100% do pai */
-    width: 100%; /* Mantém 100% da largura */
+    height: 100%;
+    width: 100%;
     color: #ffffff;
     /* padding-top: 20px; */
     border-end-end-radius: 100px;
     border-end-start-radius: 100px;
 }
 
+/* FIM DO BANNER INICIAL*/
 
+/* INICIO SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
 .banner-container {
     align-items: center;
     width: 60%;
+    border-end-end-radius: 120px;
+    border-end-start-radius: 120px;
 }
 
-.banner-container p{
+.banner-container p {
     margin: 5px 5px;
     color: firebrick;
     font-family: 'Poppins', sans-serif;
     font-size: 36px;
     text-align: left;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
 }
 
-.conteudo {
-    background: linear-gradient(180deg, #dcd9d9, #875454);
+.fundo-conteudo {
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     height: 900px;
-    padding: 100px;
-    font-family:'Times New Roman', Times, serif;
+    padding: 90px;
+    width: 100%;
     font-size: medium;
+    border-end-end-radius: 120px;
+    border-end-start-radius: 120px;
+
+}
+
+.container-fundo2 {
+    background-color: whitesmoke;
+}
+
+.conteudo {
+    justify-content: space-between;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 40px;
+    width: 100%;
 }
 
 .conteudo-container {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: medium;
+    background-color: #202020;
     display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding-left: 35px;
-    width: 50%;
-    height: 50%;
-    text-align: justify;
+    color: white;
+    flex-direction: row;
+    padding: 105px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 35px;
 }
 
 .texto1 {
@@ -155,136 +179,89 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
+    border-radius: 45px;
+    padding: 20px;
+    font-size: 20;
 }
 
-.texto1 h1 {
-    font-size: 38px;
-    align-self: flex-start;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.texto2-3 {
-    display: flex;
-    justify-content: start;
-    align-items: start;
+.texto1 .titulo-contexto {
+    font-size: 40px;
     text-align: center;
-    gap: 10px;
+
 }
 
-.texto2-3 p {
-    margin: 0;
+.texto1 p {
+    font-size: 18px;
+    text-align: center;
 }
 
-.texto2 {
+/* FIMMM SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
+
+/*INICIO SAIBA MAIS SOBRE OS ARTISTAS*/
+.container-fundo3 {
+    background-color: whitesmoke;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-.texto2 h2 {
-    font-size: 32px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.texto3 h2 {
-    font-size: 32px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.texto3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-.imagem2 {
-    display: flex;
-    width: 50%;
-    align-items: center;
-}
-.imagem2 img {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    flex-direction: row;
     height: 600px;
+    padding: 5px;
     width: 100%;
-    align-self: center;
-    border-top-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 200px;
-    border-top-right-radius: 10px;
-    transform: scale(0.8);
+    font-size: medium;
+    border-end-end-radius: 120px;
+    border-end-start-radius: 120px;
 }
 
-.button .button-saibamais {
-    border-radius: 35px;
-
+.about-us {
+    margin-top: 100px;
+    width: 100%;
 }
 
-.button-home {
+.container-art {
     display: flex;
-    justify-content: start;
-    align-items: start;
-    margin: 20px;
-}
-
-.button {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    background-color: #F9F9F7;
-    border: 1px solid #393C3F;
-    color: #393C3F;
-    padding: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-in-out;
-    width: 250px;
-    height: 60px;
-    margin: 20px;
-    border-radius: 15px;
-    align-items: center;
-}
-
-.flex {
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 1400px;
+    margin: auto;
+    align-items: center;
+    padding-top: 15px;
 }
 
-.nav-list {
-    list-style-type: none;
-    display: flex;
-    gap: 30px;
+.about-section {
+    width: 45%;
 }
 
-.buttons-container {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
+.text-about,
+.image-about {
+    text-align: center;
 }
 
-.buttons-container button {
-    padding: 10px 20px;
-    font-weight: bold;
-    background-color: #F9F9F7;
-    border: none;
-    color: #2F3A4E;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.text-about {
+    font-family: 'Poppins', sans-serif;
 }
 
-.buttons-container button:hover {
-    background-color: #393C3F;
-    color: #F9F9F7;
+.img-about>img {
+    width: 40rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+.text-about {
+    color: rgb(83, 83, 83);
+}
+
+.text-about>h1 {
+    color: #202020;
+}
+
+.about-text1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* FIM SAIBA MAIS SOBRE OS ARTISTAS*/
 
 /* COPIEI O DE CIMA E PINTEI DE BRANCO - G */
 .conteudoS {
-    background-color:#fff;
+    background-color: #000000;
     margin: auto;
     padding: auto;
 }
@@ -293,214 +270,116 @@ nav {
 .containerS {
     display: flex;
     justify-content: space-between;
-    width: 90%; 
-    margin: 50px auto; 
+    width: 90%;
+    margin: 50px auto;
 }
 
-/* CONTEUDO DO SOBRE/PROJETO */
+/* FIMMMM TELA INICIAL HOME */
 
-.conteudoP {
-    background-color: #fff;
-    margin: auto;
-    padding: 100px;
-    height: 450px;
+/*INICIO SOBRE RACIONAIS*/
+.racionais {
+    height: 1000PX;
+    width: 100%;
+    padding: 85PX;
+    background-color: #202020;
 }
 
-.conteudoP .containerP {
+.racionais-container {
+    background-image: url();
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.texto1P {
-    text-align: center; 
-    margin: 0 auto; 
-    width: 700px; 
-}
-
-.texto2P{
-    display:flex;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    color: #000000;
+    border-end-end-radius: 100px;
+    border-end-start-radius: 100px;
     justify-content: flex-start;
-    flex-direction: column;
-    width: 33%;
 }
 
-.texto3P{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    
+.texto-rac {
+    background-color: #202020;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-style: medium;
+    justify-content: flex-start;
 }
 
-.containerMvv {
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
-}
-
-.conteudoP .texto1P h1, 
-.conteudoP .texto2P h2, 
-.conteudoP .texto3P h2, 
-.conteudoP .texto4P h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.conteudoP .imagem img {
-    width: 50px;
-    position: relative;
-    top: 2px;
-}
-/* TELA SOBRE RACIONAIS */
-.slider {
-    margin: 0 auto;
-    width: 800px;
-    height: 400px;
-    overflow: hidden;
-}
-
-.slides {
-    width: 400px;
-    height: 400px;
-    display: flex;
-}
-
-.slides input {
-    display: none;
-}
-
-.slide {
-    width: 25%;
-    position: relative;
-}
-
-.slide img {
-    width: 800px;
-}
-
-.navegacao-auto {
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-naveg {
-    border: 2px solid white;
-    padding: 5px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-naveg:not(:last-child) {
-    margin-right: 40px;
-}
-
-.manual-naveg:hover {
-    background-color: #393C3F;
-
-}
-
-
-
-
-
-
-
-
-/* FIMMMM SOBRE RACIONAIS */
-/* FIM DO SOBRE/PROJETO */
-
-.conteudo .container .texto3 h2 {
+.texto-rac h1 {
+    background-color: #202020;
+    color: white;
+    font-family: "Roboto", sans-serif;
     font-size: 35px;
-    margin-bottom: 5px;
-}
-
-.conteudo .container .texto3 p {
-    margin-top: 5px;
-}
-
-/* TEXTO DO SERVIÇO - EU N SEI O QUE É ORDER MAS FEZ O TEXTO FICAR NA DIREITA - G */
-.conteudoS .containerS .textoS {
-    order: 1;
-    width: 50%;
-    text-align: justify;
+    font-style: medium;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.conteudoS .containerS .textoS h1 {
-    margin: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
 
-.textoS p {
-    width: 80%;
-    margin: 5px;
-}
 
-.p-servicos {
-    font-weight: bolder;
-}
 
-.imagem1 {
+
+.container-time {
+    background-color: #f8eaea;
+    height: auto;
     display: flex;
-    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(1, 50, 32);
+    padding-top: 60px;
+    padding-left: 64px;
+    padding-right: 64px;
+    border-top-right-radius: 100px;
 }
 
-/* IMAGEM, INVERTI AS BORDAS E DEU CERTO - G  */
-.conteudoS .containerS .imagem1 img {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    height: 500px;
-    width: 575px;
-    border-top-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 200px;
-    border-top-right-radius: 200px;
+.card-time {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Espaço entre os cards */
+    width: 100%;
 }
 
-
-
-.button:hover {
-    background-color: #2F3A4E;
-    color: #F9F9F7;
+.card {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 80%;
+    /* Ajusta a largura dos cards */
+    max-width: 800px;
+    padding-top: 60px;
+    transform: scale(0.9);
 }
 
-
-/* BOTAO DE SERVIÇOS - COPIEI O DE CIMA E FIZ MUDANÇAS PRA DESCER - G */
-.button1 {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    background-color: #F9F9F7;
-    border: 1px solid #393C3F;
-    color: #393C3F;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-in-out;
-    width: 300px; 
-    height: 60px;
-    margin-top: 30px;
-}
-/* PARTE DO QUE COPIEI */
-.button1:hover {
-    background-color: #2F3A4E;
-    color: #F9F9F7;
+.card span {
+    padding-top: 25px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-/* FIM DO SERVICOS */
+.card img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: center;
+}
+
+.texto-card {
+    padding: 40px;
+    width: 80%;
+}
+
+/* FIMMM SOBRE RACIONAIS*/
 
 
 /* INICIO FOOTER */
 .footer {
     display: flex;
     justify-content: space-between;
-    background-color: #000000;
+    background-color: rgb(0, 0, 0);
     height: 150px;
     color: rgb(255, 255, 255);
     display: flex;
@@ -512,7 +391,8 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    align-items: center; }
+    align-items: center;
+}
 
 .fale-conosco {
     display: flex;
@@ -541,79 +421,41 @@ nav {
 
 }
 
-/* Centraliza o conteúdo e ajusta a margem e espaçamento */
-main.conteudo {
-    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/30709545-grao-silos-dentro-a-meio-do-largo-verde-campos-em-uma-ensolarado-dia-generativo-ai-gratis-foto.jpg'); /* Caminho da imagem */
-    background-size: cover; 
-    background-position: center;
-    background-attachment: fixed; 
-    width: 100%;
-    background-color: #393C3F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-main.conteudo .containerLogin {
-    height: 330px;
-    width: 300px;
-    background-color: rgba(47, 58, 78, 0.948);
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    text-align: center;
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-main.conteudo label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #ffffffec;
-    align-self: flex-start;
-}
-
-.tittleLog {
-    color: #ff9800; 
-    font-weight: bold; 
-    font-size: 30px;
-    border-radius: 1px;
-}
-
-.subTittle {
-    display: flex;
-    align-self: flex-start;
-    color: #ff9800;
-    font-weight: bold;
-    border-radius: 1px;
-}
-
 /* LOGIN E CADASTRO */
 ::selection {
     background-color: #808080;
-  }
-  
-  .container-lc {
+}
+
+.container-lc {
+    background-image: url(/public/assets/imgs/brownesabotage.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* .container-lc {
+    background-image: url(/public/assets/imgs/brownesabotage.jpg);
     margin: 30px auto;
+    display: flex;
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 2rem;
     
-  }
+} */
 
-  .conteudo-login {
+.conteudo-login {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .form-cadastro {
+}
+
+.form-cadastro {
     width: 500px;
     height: 650px;
     background-image: linear-gradient(to bottom, #424242, #212121);
@@ -621,25 +463,25 @@ main.conteudo label {
     align-items: center;
     flex-direction: column;
     border-radius: 0.5rem;
-  }
+}
 
-    .form-login {
-        width: 500px;
-        height: 500px;
-        background-image: linear-gradient(to bottom, #424242, #212121);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 0.5rem;
-      }
-  
-  .title {
+.form-login {
+    width: 500px;
+    height: 500px;
+    background-image: linear-gradient(to bottom, #424242, #212121);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+}
+
+.title {
     color: #fefbf6;
     margin: 3rem 0;
     font-size: 2rem;
-  }
-  
-  .input {
+}
+
+.input {
     margin: 8px 0;
     padding: 16px 8px;
     width: 320px;
@@ -649,13 +491,15 @@ main.conteudo label {
     outline: none;
     border-bottom: 1px solid #fefbf6;
     transition: all 400ms;
-  }
-  .input:hover {
+}
+
+.input:hover {
     background-color: #424242;
     border: none;
     border-radius: 8px;
-  }
-  .btn {
+}
+
+.btn {
     height: 45px;
     width: 120px;
     margin-top: 40px;
@@ -666,45 +510,56 @@ main.conteudo label {
     transition: all 400ms;
     cursor: pointer;
     box-shadow:
-      0 0 10px antiquewhite,
-      0 0 10px antiquewhite;
-  }
-  .btn:hover {
+        0 0 10px antiquewhite,
+        0 0 10px antiquewhite;
+}
+
+.btn:hover {
     background-color: antiquewhite;
     box-shadow: none;
-  }
+}
 
- .message {
+.message {
     color: antiquewhite;
 }
-  
+
+@media (max-width: 768px) {
+    .container-lc {
+        flex-direction: column;
+    }
+}
+
+/* FIMM ESTILO LOGIN E CADASTRO*/
+
 
 /* é nesse aqui pra fazer a validação em vermelho*/
 main.conteudo .input {
     width: 95%;
     padding: 12px;
     margin-bottom: 12px;
-    background-color:  rgba(47, 58, 78, 0.948);
+    background-color: rgba(47, 58, 78, 0.948);
     color: #ffffffd9;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
 
-main.conteudo .subcontainer{
+main.conteudo .subcontainer {
     display: flex;
 }
+
 main.conteudo .subcontainer input {
     /* width: 95%; */
     padding: 12px;
     margin-bottom: 5px;
     margin: 10px;
-    background-color:  rgba(47, 58, 78, 0.948);
+    background-color: rgba(47, 58, 78, 0.948);
     color: #ffffffd9;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
+
 main.conteudo button[type="submit"] {
     display: inline-block;
     background-color: #F9F9F7;
@@ -716,8 +571,8 @@ main.conteudo button[type="submit"] {
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
     box-shadow:
-    0 0 10px antiquewhite,
-    0 0 10px antiquewhite;
+        0 0 10px antiquewhite,
+        0 0 10px antiquewhite;
 }
 
 main.conteudo button[type="submit"]:hover {
@@ -728,16 +583,15 @@ main.conteudo button[type="submit"]:hover {
 
 #divError {
     color: #ffffff;
-    text-shadow: 3px 3px 1px rgb(255, 0, 0);
-}
-#divErrorLogin {
-    color: #ffffff;
-    text-shadow: 3px 3px 1px rgb(255, 0, 0);
-}
 
-main.conteudo p {
-    margin: 2px;
-    font-size: 14px;
+    divErrorLogin {
+        color: #ffffff;
+
+        main.conteudo p {
+            margin: 2px;
+            font-size: 14px;
+        }
+    }
 }
 
 main.conteudo a {
@@ -754,12 +608,14 @@ main.conteudo a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
-    gap: 10px; 
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
 
 
-} #button_login, 
+}
+
+#button_login,
 #button_cadastro {
     display: flex;
     justify-content: center;
@@ -771,7 +627,7 @@ main.conteudo a:hover {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
-    width: 200px; 
+    width: 200px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -789,60 +645,42 @@ main.conteudo a:hover {
     color: white;
 }
 
-/* retirar navbar da tela de login e cadastro */
+/* retirar navbar da tela de login e cadastro
 body.login-page .navbar,
 body.cadastro_page .navbar {
     display: none;
-}
+} */
 
-/* ESTILIZAÇÃO SOBRE/ TIME */
-
-.container-time {
-    background-color: #f8eaea;
-    height: auto;
+/* MENSAGENS DE ERRO */
+.alerta_erro{
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color:#424242b9;
+    color: whitesmoke;
+    width: 330px;
+    position: fixed;
+    border-radius: 4px;
+    border: #fd5656 3px solid;
+    padding: 10px;
+    margin-right: 10%;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(1, 50, 32);
-    padding-top: 60px;
-    padding-left: 64px;
-    padding-right: 64px;
-    border-top-right-radius: 100px;
-}
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
 
-.card-time {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Espaço entre os cards */
-    width: 100%;
+#divError {
+    color: #ffffff;
+    text-shadow: 3px 3px 1px rgb(255, 0, 0);
 }
-
-.card {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    width: 80%; /* Ajusta a largura dos cards */
-    max-width: 800px;
-    padding-top: 60px;
-    transform: scale(0.9);
+#divErrorLogin {
+    color: #ffffff;
+    text-shadow: 3px 3px 1px rgb(255, 0, 0);
 }
-
-.card span {
-    padding-top: 25px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.card img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    align-self: center;
-}
-
-.texto-card {
-    padding: 40px;
-    width: 80%;
-}
+/* FIMM MENSAGENS DE ERRO */

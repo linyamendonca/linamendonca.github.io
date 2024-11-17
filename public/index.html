@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAP | Página Inicial</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="index.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -21,88 +24,61 @@
             </ul>
         </div>
         <div class="btn-nav">
-            <button href="login.html" class="login">Login</button>
-            <button href="cadastro.html" class="cadastro">Cadastro</button>
+            <a href="login.html"><button type="button" class="login">Login</button></a>
+            <a href="cadastro.html"><button class="cadastro">Cadastro</button></a>
         </div>
 
     </nav>
     <div class="banner-fundo">
         <div class="banner">
+            <img src="/public/assets/imgs/albuns2.png" alt="">
             <div class="banner-container">
-                <p>Rap Nacional é coisa séria!</p>
+                
             </div>
         </div>
     </div>
-
-    <div class="conteudo">
-        <div class="conteudo-container">
-            <div class="texto1">
-                <h1>Qual a relevância do Rap Nacional?</h1>
-                <p>O rap nacional é de extrema importância porque ele funciona como uma voz poderosa
-                    das periferias e comunidades do país, levando suas histórias, lutas e demandas para
-                    um público mais amplo. O gênero musical reflete e revela realidades que não encontram
-                    espaço em outros tipos de mídia. Figuras como Sabotage e o grupo Racionais MC's
-                    são fundamentais, pois transcenderam o papel de músicos e se tornaram símbolos de
-                    consciência social, ativismo, identidade e pertencimento.
-                </p>
-            </div>
-            <!-- <div class="texto2-3">
-                <div class="texto2">
-                    <h2>6% do PIB nacional</h2>
-                    <p>O mercado da soja hoje <br> representa 6% do PIB brasileiro.</p>
+<div class="container-fundo2">
+<div class="fundo-conteudo">
+        <div class="conteudo">
+            <div class="conteudo-container">
+                <div class="texto1">
+                    <p class="titulo-contexto">Qual a relevância do Rap Nacional?</p> <br><br>
+                    <p>O rap nacional é de extrema importância porque ele funciona como uma voz poderosa
+                        das periferias e comunidades do país, levando suas histórias, lutas e demandas para
+                        um público mais amplo. O gênero musical reflete e revela realidades que não encontram
+                        espaço em outros tipos de mídia. Figuras como Sabotage e o grupo Racionais MC's
+                        são fundamentais, pois transcenderam o papel de músicos e se tornaram símbolos de
+                        consciência social, ativismo, identidade e pertencimento.
+                    </p>
                 </div>
-                <div class="texto3">
-                    <h2>US$ 60 Bilhões</h2>
-                    <p>Em exportações <br>para mais de 50 países em 2023.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fundo3">
+        <section class="about-us">
+            <div class="container-art">
+                <div class="about-section">
+                    <div class="text-about">
+
+                        </div>
+                    <div class="image-about">
+                        <img src="/public/assets/imgs/kljebrown.jpg" alt="">
+                    </div>
                 </div>
-            </div> -->
-            <div class="button-saibamais">
-                <button class='button' onclick="window.location.href='#quiz'">Faça o Quiz</button>
+                <div class="about-section">
+                    <div class="text-about">
+
+                        </div>
+                    <div class="image-about">
+                        <img src="/public/assets/imgs/sabota.jpg" alt="">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="imagem2">
-            <img src="/public/assets/imgs/rac1.jpg">
-            <img src="/public/assets/imgs/rac1.jpg">
-            <img src="/public/assets/imgs/rac1.jpg">
-        </div>
+        </section>
     </div>
 
-    <div class="conteudoS" id="servicos">
-        <div class="containerS">
-            <div class="textoS">
-                <h1>Introdução racionais</h1>
-                <p class="p-servicos"></p>
-                <p>
-                    Prestamos serviço e enviamos nossos produtos para todo o Brasil, junto de nosso manual de
-                    instalação, além do nosso suporte integral.
-                </p>
-                <button class='button1' onclick="window.location.href='racionais.html'">Veja detalhes sobre o grupo
-                    Racionais!</button>
-            </div>
-            <div class="imagem1">
-                <img src="/assets/imgs/rac1.jpg">
-            </div>
-        </div>
-    </div>
-
-    <div class="conteudoS" id="servicos">
-        <div class="containerS">
-            <div class="textoS">
-                <h1>Introdução sabotage</h1>
-                <p class="p-servicos"></p>
-                <p>
-                    Prestamos serviço e enviamos nossos produtos para todo o Brasil, junto de nosso manual de
-                    instalação, além do nosso suporte integral.
-                </p>
-                <button class='button1' onclick="window.location.href='sabotage.html'">Veja detalhes sobre o
-                    Sabotage!</button>
-
-            </div>
-            <div class="imagem1">
-                <img src="/assets/imgs/sabotadeamarelo.jpg">
-            </div>
-        </div>
-    </div>
 
     <div class="footer">
         <div class="container">
@@ -110,14 +86,15 @@
                 <h1 class="titulo">linyaCode</h1>
             </div>
             <div class="redes-footer">
-                <p>Desenvolvido por Linya Alves. <br>Contato: <a href="mailto:linyaalves@outlook.com">linyaalves@outlookcom</a></p>
+                <p>Desenvolvido por Linya Alves. <br>Contato: <a
+                        href="mailto:linyaalves@outlook.com">linyaalves@outlookcom</a></p>
                 <h4 class="h4">Redes Sociais: </h4>
             </div>
             <div class="copyright">
                 <footer>
                     <p>&copy; 2024 Faculdade São Paulo Tech School - Curso de Análise e Desenvolvimento de Sistemas</p>
                 </footer>
-                
+
             </div>
         </div>
     </div>
