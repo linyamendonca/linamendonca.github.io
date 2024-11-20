@@ -1,10 +1,13 @@
 /* INICIO SOBRE PROJETO */
 
-body {
-    background-color: #0000;
+html, body {
+    background-color: #202020;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 * {
@@ -13,17 +16,22 @@ body {
     box-sizing: border-box;
 }
 
+body > *:not(footer) {
+    flex: 1;
+}
+
 nav {
     position: absolute;
     font-family: "Grenze Gotisch", serif;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #0f0f0f;
     color: white;
     padding: 1px 5px;
-    z-index: 10; 
+    /* z-index: 10;  */
     width: 100%;
+    border-bottom: 1px solid #ccc;
 }
 
 
@@ -35,21 +43,21 @@ nav {
 }
 
 .nav-itens li {
-    margin-right: 30px; /* Espaço entre os itens */
+    margin-right: 30px;
 }
 
 .nav-itens li a {
-    color: white;
+    color: rgb(84, 84, 84);
     text-decoration: none;
     font-size: 25px;
 }
 
 .nav-itens li a:hover {
-    text-decoration: underline; /* Exemplo de efeito hover */
+    text-decoration: underline;
 }
 
 .btn-nav a {
-    margin-left: 10px; /* Distância entre os botões de login e cadastro */
+    margin-left: 15px;
 }
 
 .logo {
@@ -85,49 +93,49 @@ nav {
     background-color: whitesmoke;
     transition: 1s background;
 }
+/* FIMMM DA NAVBAR*/
 
-/* FIM DA NAVBAR*/
 
 /* INICIO DO BANNER INICIAL*/
 .banner-fundo {
     background-color: white;
     position: relative;
     display: flex;
-    background-color: #202020;
+    background-color: #0f0f0f;;
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
     color: #9b4a4a;
-    overflow: hidden; /* Esconde o que ultrapassar os limites */
+    overflow: hidden; 
     width: 100%;
 }
 
 .banner {
     display: flex;
-    width: 100%; /* Garante que a largura do contêiner seja o dobro da largura da tela */
-    animation: move-carousel 10s linear infinite; /* Animação contínua */
+    width: 100%; 
+    animation: move-carousel 10s linear infinite; 
 }
 
 .banner img {
-    width: 100%; /* Cada imagem ocupa 50% da largura da tela */
+    width: 100%;
 }
 
 @keyframes move-carousel {
     0% {
-        transform: translateX(0); /* Começa com a primeira imagem à vista */
+        transform: translateX(0); 
     }
     49% {
-        transform: translateX(-50%); /* A primeira imagem começa a sair da tela */
+        transform: translateX(-50%); 
     }
     50% {
-        transform: translateX(-50%); /* Nesse ponto, a segunda imagem aparece */
+        transform: translateX(-50%); 
     }
     100% {
-        transform: translateX(-100%); /* A primeira imagem já saiu e a segunda já entrou completamente */
+        transform: translateX(-100%); 
     }
 }
-/* FIM DO BANNER INICIAL*/
+/* FIMMM DO BANNER INICIAL*/
 
 /* INICIO SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
 .banner-container {
@@ -147,10 +155,10 @@ nav {
 }
 
 .fundo-conteudo {
-    background-color: #202020;
+    background-color: #0f0f0f;;
     display: flex;
     flex-direction: row;
-    height: 900px;
+    height: 600px;
     padding: 90px;
     width: 100%;
     font-size: medium;
@@ -159,13 +167,48 @@ nav {
 
 }
 
+.cardIndex {
+    height: 350px;
+    width: 80%;
+    background-color: #0f0f0f; 
+    border: 2px solid #fff7f7; 
+    border-radius: 10px;
+    margin: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.textoIndex h2 {
+    font-size: 25px;
+    color: whitesmoke;
+    text-align: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    position: absolute;
+}
+
+.textoIndex p {
+    font-size: 20px;
+    text-align: center;
+    inline-size:auto;
+    color: whitesmoke;
+    
+}
+
+.imgIndex img {
+    width: 200px;
+    border-radius: 8px; 
+}
+
 .container-fundo2 {
     background-color: whitesmoke;
 }
 
 .conteudo {
     justify-content: space-between;
-    background-color: #202020;
+    background-color: #0f0f0f;;
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -177,7 +220,7 @@ nav {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
     font-style: medium;
-    background-color: #202020;
+    background-color: #0f0f0f;;
     border: whitesmoke;
     display: flex;
     color: white;
@@ -210,8 +253,8 @@ nav {
     font-size: 18px;
     text-align: center;
 }
-
 /* FIMMM SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
+
 
 /*INICIO SAIBA MAIS SOBRE OS ARTISTAS*/
 .container-fundo3 {
@@ -273,24 +316,39 @@ nav {
     margin-bottom: 30px;
 }
 
-/* FIM SAIBA MAIS SOBRE OS ARTISTAS*/
-
-/* COPIEI O DE CIMA E PINTEI DE BRANCO - G */
-.conteudoS {
-    background-color: #000000;
-    margin: auto;
-    padding: auto;
-}
-
-/* containerS DE SERVIÇO - SPACEBETWEEN FAZ EU CONSEGUI MEXER O TEXTO N SEI PQ - G */
-.containerS {
+/* SOBRE MIMM */
+.sobre-mim {
+    background-color: #f5f5f5;
+    padding: 150px;
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    margin: 50px auto;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .minha-foto img {
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height: 350px;
+  }
+  
+  .sobre-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    font-family: "Roboto", sans-serif;
 }
+  
+  .sobre-text p {
+    line-height: 1.6;
+    color: #666;
+    font-family: "Roboto", sans-serif;
+  }
+/* FIM SAIBA MAIS SOBRE OS ARTISTAS*/
 
 /* FIMMMM TELA INICIAL HOME */
+
 
 /*INICIO SOBRE RACIONAIS*/
 .banner-fundoR {
@@ -314,6 +372,10 @@ nav {
     height: 95vh;
     object-fit: cover;
     border-radius: 100px;
+    width: 100%;
+    height: 95vh;
+    object-fit: cover;
+    border-radius: 100px;
 }
 
 .bannerR {
@@ -330,6 +392,7 @@ nav {
     border-end-end-radius: 100px;
     border-end-start-radius: 100px;
 }
+
 .banner-containerR {
     align-items: center;
     width: 60%;
@@ -345,34 +408,31 @@ nav {
     text-align: left;
 
 }
-/* Container do Carrossel */
+
 .banner-fundoR2 {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #202020; /* Ajuste conforme sua necessidade */
+    background-color: #202020; 
 }
 
-/* Container geral para os cards */
 .banner-integrantes {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #202020; /* Ajuste conforme necessário */
-    height: 400px; /* Aumente esse valor conforme necessário */
+    background-color: #202020; 
+    height: 400px; 
     width: 100%;
 }
 
-/* Container de todos os cards */
 .cards-container {
     display: flex;
-    justify-content: space-between; /* Espaçamento entre os cards */
-    gap: 10px; /* Espaço entre os cards */
+    justify-content: space-between; 
+    gap: 10px; 
 }
 
-/* Estilo individual dos cards */
 .card-manos {
     width: 100%;
     height: 100%;
@@ -387,22 +447,19 @@ nav {
     transition: transform 0.3s ease;
 }
 
-/* Imagem dentro dos cards */
 .card-manos img {
-    width: 100%; /* A imagem ocupa toda a largura do card */
-    height: auto; /* Ajusta a altura da imagem para manter a proporção */
+    width: 100%; 
+    height: auto; 
     border-radius: 8px;
 }
 
-/* Texto abaixo da imagem */
 .card-manos p {
     margin-top: 10px;
     font-size: 1.1em;
 }
 
-/* Efeito de hover nos cards */
 .card-manos:hover {
-    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+    transform: scale(1.05); 
 }
 
 .fundo-racionais {
@@ -497,18 +554,16 @@ nav {
     border-radius: 8px; 
 }
 
-
-/* icones do spotify na parte dos albuns*/
 .spotify-link {
-    color: #000; /* Cor preta */
-    font-size: 15px; /* Tamanho do ícone */
+    color: #000; 
+    font-size: 15px; 
     text-decoration: none;
 }
 
 .spotify-text {
-    color: #000; /* Cor preta */
-    margin-top: 8px; /* Espaçamento entre o ícone e o texto */
-    font-size: 16px; /* Tamanho da fonte */
+    color: #000; 
+    margin-top: 8px; 
+    font-size: 16px; 
 }
 
 /* FIMMM SOBRE RACIONAIS*/
@@ -516,11 +571,12 @@ nav {
 
 /* INICIO FOOTER */
 .footer {
-    background-color: #2c2f33;
+    background-color: #0f0f0f;
     color: #f5f5f5;
     padding: 20px 0;
     text-align: center;
-    border-top: 4px solid #dfe2eb;
+    border-top: 2px solid #fdfdfd;
+    padding: 10px 0;
 }
 
 .footer .container {
@@ -531,7 +587,7 @@ nav {
 .titulo {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #cc383d;
+    color: #4152be;
 }
 
 .redes-footer {
@@ -544,7 +600,7 @@ nav {
 }
 
 .redes-footer a {
-    color: #cc383d;
+    color: #4152be;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -560,7 +616,7 @@ nav {
 .social-icons a {
     margin: 0 10px;
     font-size: 1.5rem;
-    color: #cc383d;
+    color: #4152be;
     transition: color 0.3s;
 }
 
@@ -577,7 +633,7 @@ nav {
 
 /* LOGIN E CADASTRO */
 ::selection {
-    background-color: #808080;
+    background-color: #0f0f0f;
 }
 
 .container-lc {
@@ -590,18 +646,6 @@ nav {
     padding: 2rem;
 }
 
-/* .container-lc {
-    background-image: url(/public/assets/imgs/brownesabotage.jpg);
-    margin: 30px auto;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    
-} */
-
 .conteudo-login {
     width: 100%;
     display: flex;
@@ -612,7 +656,7 @@ nav {
 .form-cadastro {
     width: 500px;
     height: 650px;
-    background-image: linear-gradient(to bottom, #424242, #212121);
+    background-image: linear-gradient(to bottom, #424242, #0f0f0f);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -622,7 +666,7 @@ nav {
 .form-login {
     width: 500px;
     height: 500px;
-    background-image: linear-gradient(to bottom, #424242, #212121);
+    background-image: linear-gradient(to bottom, #424242, #0f0f0f);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -724,3 +768,109 @@ body.cadastro_page .navbar {
     text-shadow: 3px 3px 1px rgb(255, 0, 0);
 }
 /* FIMM MENSAGENS DE ERRO */
+
+/* TELA QUIZZ */
+#instrucoes {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #9d0a0a;
+    max-width: px;
+    border-radius: 10px;
+    background-color: #0f0f0f;
+}
+
+#instrucoes button {
+    background-color: #9d0a0a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#instrucoes button:hover {
+    background-color: white;
+    color: #9d0a0a;
+    transition: 0.3s;
+}
+
+/* Quiz container */
+#quiz-container {
+    padding: 20px;
+    margin: 150px auto;
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #9d0a0a;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+#container-questoes button {
+    background-color: #9d0a0a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#container-questoes button:hover {
+    background-color: white;
+    color: #9d0a0a;
+    transition: 0.3s;
+}
+
+#proxima-button {
+    margin-top: 20px;
+    background-color: #9d0a0a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#proxima-button:hover {
+    background-color: white;
+    color: #9d0a0a;
+    transition: 0.3s;
+}
+
+#resultado {
+    text-align: center;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 600px;
+    border: 2px solid #9d0a0a;
+    border-radius: 10px;
+    background-color: #0f0f0f; 
+}
+
+#resultado p {
+    font-size: 18px;
+}
+
+#resultado button {
+    background-color: #9d0a0a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#resultado button:hover {
+    background-color: white;
+    color: #9d0a0a;
+    transition: 0.3s;
+}
