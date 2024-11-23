@@ -1,19 +1,5 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
-
 CREATE DATABASE siterap;
 USE siterap;
-
-CREATE TABLE quiz (
-idQuiz int primary key auto_increment,
-pontuacao float
-);
 
 CREATE TABLE usuario (
 id int primary key auto_increment,
@@ -23,3 +9,9 @@ dtNasc date,
 senha varchar(45)
 );
 
+CREATE TABLE pontuacao (
+idQuiz int primary key auto_increment,
+pontuacao int,
+fkUsuario int, 
+CONSTRAINT fkUserPontos FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
+);
