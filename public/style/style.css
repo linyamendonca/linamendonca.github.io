@@ -1,7 +1,7 @@
 /* INICIO SOBRE PROJETO */
 
 html, body {
-    background-color: #202020;
+    background-color: #000;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,13 +16,13 @@ html, body {
     box-sizing: border-box;
 }
 
-body > *:not(footer) {
+/* body > *:not(footer) {
     flex: 1;
-}
+} */
 
 nav {
-    position: absolute;
-    font-family: "Grenze Gotisch", serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,7 +62,9 @@ nav {
 
 .logo {
     display: flex;
-    height: 70px;
+    /* height: 70px; */
+    width: 50px;
+    height: 70px; 
 }
 .login {
     padding: 10px 40px;
@@ -70,7 +72,7 @@ nav {
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #b4b2b293;
+    background-color: #d42e2e;
     font-family: "Grenze Gotisch", serif;
     cursor: pointer;
 }
@@ -82,7 +84,7 @@ nav {
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #b4b2b293;
+    background-color: #666;
     cursor: pointer;
     transition: 1s background;
 }
@@ -90,7 +92,7 @@ nav {
 .cadastro:hover,
 .login:hover {
     color: rgb(104, 104, 104);
-    background-color: whitesmoke;
+    background-color: #e0e0e0;
     transition: 1s background;
 }
 /* FIMMM DA NAVBAR*/
@@ -99,7 +101,6 @@ nav {
 /* INICIO DO BANNER INICIAL*/
 .banner-fundo {
     background-color: white;
-    position: relative;
     display: flex;
     background-color: #0f0f0f;;
     background-repeat: no-repeat;
@@ -107,7 +108,6 @@ nav {
     align-items: center;
     justify-content: center;
     color: #9b4a4a;
-    overflow: hidden; 
     width: 100%;
 }
 
@@ -119,6 +119,7 @@ nav {
 
 .banner img {
     width: 100%;
+    height: 100%;
 }
 
 @keyframes move-carousel {
@@ -158,8 +159,8 @@ nav {
     background-color: #0f0f0f;;
     display: flex;
     flex-direction: row;
-    height: 600px;
-    padding: 90px;
+    height: 550px;
+    padding: 85px;
     width: 100%;
     font-size: medium;
     border-end-end-radius: 120px;
@@ -173,33 +174,47 @@ nav {
     background-color: #0f0f0f; 
     border: 2px solid #fff7f7; 
     border-radius: 10px;
-    margin: 35px;
+    margin: 35px auto; /* Centraliza horizontalmente */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+    align-items: center; /* Alinha verticalmente o conteúdo dentro do card */
+    justify-content: center; /* Centraliza o conteúdo dentro do card */
 }
+
 
 .textoIndex h2 {
     font-size: 25px;
     color: whitesmoke;
-    text-align: center;
-    justify-content: flex-start;
-    margin: 0 auto;
-    position: absolute;
+    text-align: start; 
+    margin: 10px 0;
+    margin: 55px;
+    /* line-height: 1.5; */
 }
 
 .textoIndex p {
     font-size: 20px;
-    text-align: center;
-    inline-size:auto;
+    text-align: start; 
     color: whitesmoke;
-    
+    margin: 55px;
+    max-width: 50%; 
+    line-height: 1.3;
 }
 
+.cardIndex .textoIndex p {
+    font-size: 20px;
+    text-align: start; 
+    color: whitesmoke;
+    margin: 55px;
+    max-width: 50%; 
+}
+
+
 .imgIndex img {
-    width: 200px;
+    width: 900px;
+    height: 200px;
     border-radius: 8px; 
+    align-items: end; 
+    /* margin: 55px; */
+    max-width: 50%; 
 }
 
 .container-fundo2 {
@@ -255,8 +270,7 @@ nav {
 }
 /* FIMMM SEGUNDO BANNER RELEVANCIA RAP NACIONAL*/
 
-
-/*INICIO SAIBA MAIS SOBRE OS ARTISTAS*/
+/* SEGUNDO BANNER */
 .container-fundo3 {
     background-color: whitesmoke;
     display: flex;
@@ -315,114 +329,177 @@ nav {
     margin-top: 20px;
     margin-bottom: 30px;
 }
+/* FIMMMM SEGUNDO BANNER */
 
-/* SOBRE MIMM */
+/* SOBRE MIM */
 .sobre-mim {
     background-color: #f5f5f5;
-    padding: 150px;
+    padding: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: center;
     font-family: "Roboto", sans-serif;
-  }
-  
-  .minha-foto img {
-    border-radius: 50%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    height: 350px;
-  }
-  
-  .sobre-text h2 {
+}
+
+.sobre-mim2 {
+    background-color: #e0e0e0; 
+    border-radius: 15px; 
+    padding: 20px;
+    display: flex; 
+    align-items: center; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+    max-width: 80%; 
+    margin-top: 50px;
+}
+
+
+.minha-foto img {
+    border-radius: 50%; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 250px; 
+    height: 250px; 
+    margin-right: 30px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre-text h2 {
     font-size: 2rem;
     font-weight: bold;
     color: #333;
+    margin-bottom: 10px;
     font-family: "Roboto", sans-serif;
+    text-align: center;
 }
-  
-  .sobre-text p {
+
+.sobre-text p {
     line-height: 1.6;
     color: #666;
     font-family: "Roboto", sans-serif;
-  }
-/* FIM SAIBA MAIS SOBRE OS ARTISTAS*/
+    max-width: 600px; 
+    font-weight: bold;
+    text-align: center;
+}
 
+/* VALORES DA ONU */
+.sobre-onu {
+    background-color: #f5f5f5;
+    padding: 50px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.sobre-onu2 {
+    background-color: #e0e0e0; 
+    border-radius: 15px; 
+    padding: 20px;
+    display: flex; 
+    align-items: center; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+    max-width: 80%; 
+}
+
+
+.onu-foto img {
+    border-radius: 30px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 150px;
+    height: 150px; 
+    margin: 10px; 
+    flex-direction: column;
+    object-fit: cover; 
+}
+
+
+.onu-text h2 {
+    font-size: 23px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin: 5px;
+}
+
+.onu-text p {
+    line-height: 1.6;
+    color: #666;
+    font-family: "Roboto", sans-serif;
+    max-width: 600px; 
+    font-weight: bold;
+    text-align: center;
+    /* margin: 5px; */
+}
+/* FIMMM VALORES DA ONU */
+
+
+/*INICIO SAIBA MAIS SOBRE OS ARTISTAS*/
+/* FIM SAIBA MAIS SOBRE OS ARTISTAS*/
 /* FIMMMM TELA INICIAL HOME */
 
 
 /*INICIO SOBRE RACIONAIS*/
 .banner-fundoR {
-    position: relative;
-    display: flex;
-    background-color: #f0f0f0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    height: 550px;
-    color: #9b4a4a;
+    width: 100%; 
+    background-color: #000; 
 }
-
 
 .bannerR img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 95vh;
-    object-fit: cover;
-    border-radius: 100px;
-    width: 100%;
-    height: 95vh;
-    object-fit: cover;
-    border-radius: 100px;
+    width: 361px; 
+    height: 260px; 
+    object-position: center; 
 }
 
-.bannerR {
-    background-color: #202020;
-    display: flex;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: #ffffff;
-    /* padding-top: 20px; */
-    border-end-end-radius: 100px;
-    border-end-start-radius: 100px;
+/* INÍCIO HISTÓRIA DO GRUPO */
+.sobre-rac {
+    background-color: #000; 
+    color: #fff; 
+    padding: 40px 20px; 
+    margin: 0 auto; 
+    max-width: 1200px; 
+    text-align: justify; 
+    font-family: '
 }
 
-.banner-containerR {
-    align-items: center;
-    width: 60%;
-    border-end-end-radius: 120px;
-    border-end-start-radius: 120px;
-}
-
-.banner-containerR p {
-    margin: 5px 5px;
-    color: firebrick;
-    font-family: 'Poppins', sans-serif;
-    font-size: 36px;
-    text-align: left;
-
-}
-
-.banner-fundoR2 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sobre-rac2 {
+    background-color: #000; 
     padding: 20px;
-    background-color: #202020; 
+    border-radius: 8px; 
+    border: 3px solid #747474; 
 }
+
+.sobre-rac2 p {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    margin-bottom: 20px; /
+}
+
+.sobre-rac2 p + p {
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+}
+
+.sobre-rac2 p strong {
+    font-weight: bold;
+    color: #fff; 
+}
+
+.sobre-rac img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0; 
+}
+/* FIMM HISTÓRIA DO GRUPO */
 
 .banner-integrantes {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #202020; 
+    background-color: #000; 
     height: 400px; 
     width: 100%;
 }
@@ -436,7 +513,7 @@ nav {
 .card-manos {
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: #000;
     color: white;
     border-radius: 8px;
     text-align: center;
@@ -587,8 +664,19 @@ nav {
 .titulo {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #4152be;
+    color: #b9d1dc;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    text-align: center; 
 }
+
+.logo img {
+    width: 50px;
+    height: 70px; 
+}
+
 
 .redes-footer {
     margin-top: 15px;
@@ -600,7 +688,7 @@ nav {
 }
 
 .redes-footer a {
-    color: #4152be;
+    color: #b9d1dc;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -616,7 +704,7 @@ nav {
 .social-icons a {
     margin: 0 10px;
     font-size: 1.5rem;
-    color: #4152be;
+    color: #b9d1dc;
     transition: color 0.3s;
 }
 
@@ -774,9 +862,11 @@ body.cadastro_page .navbar {
     text-align: center;
     padding: 20px;
     border: 2px solid #9d0a0a;
-    max-width: px;
+    /* width: 250px; */
+    height: 300px;
     border-radius: 10px;
     background-color: #0f0f0f;
+    color: white;
 }
 
 #instrucoes button {
