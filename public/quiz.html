@@ -5,53 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Racionais Mc's</title>
-  <link rel="stylesheet" href="style/dash.css">
-  <link rel="stylesheet" href="style/quiz.css">
+  <link rel="stylesheet" href="/style/quiz.css">
+  <link rel="stylesheet" href="/style/dash.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
     <aside class="menu-lateral">
-        <div class="menu-header">
-          <img src="../public/assets/imgs/icone-logo.png" alt="Logo">
-        </div>
-        <div class="menu-opcoes">
-          <a href="quiz.html"><img src="../public/assets/imgs/quiz.png" alt="Quiz"></a>
-          <a href="../public/dashboard.html"><img src="../public/assets/imgs/grafico-dash.png" alt="Home" onclick="mostrarGeral()"></a>
-          <!-- <a href="../public/dashboard.html"></a><img src="../public/assets/imgs/grafico-dash.png" alt="Gráficos" onclick="mostrarIndividual()"></a> -->
-          <!-- <a href="index.html"><img src="/public/assets/imgs/sair.png" alt="Sair"></a> -->
-       </div>
-        <div class="menu-sair">
-          <a href="../public/index.html"><img src="../public/assets/imgs/sair.png" alt="Sair"></a>
-        </div>
-      </aside>
+      <div class="menu-header">
+        <img src="/assets/imgs/icone-logo.png" alt="Logo">
+      </div>
+      <div class="menu-opcoes">
+        <a href="/quiz.html"><img src="/assets/imgs/quiz.png" alt="Quiz"></a>
+        <a href="/dashboard.html"><img src="/assets/imgs/grafico-dash.png" alt="Home" onclick="mostrarGeral()"></a>
+      </div>
+      <div class="menu-sair">
+        <a href="/index.html"><img src="/assets/imgs/sair.png" alt="Sair"></a>
+      </div>
+    </aside>
 
-  <div id="instrucoes">
-    <h1>Bem-vindo ao Quiz Racionais Mc's!</h1>
-    <p>Teste seus conhecimentos sobre o grupo! <br>
-      Responda às perguntas e descubra sua pontuação ao final.</p>
-    <button onclick="iniciarQuiz()">Iniciar Quiz</button>
-  </div>
+    <div id="instrucoes">
+      <h1>Bem-vindo ao Quiz Racionais Mc's!</h1>
+      <p>Teste seus conhecimentos sobre o grupo! <br>
+        Responda às perguntas e descubra sua pontuação ao final.</p>
+      <button onclick="iniciarQuiz()">Iniciar Quiz</button>
+    </div>
 
-  <div id="quiz-container" style="display: none;">
-    <!-- <h1>Quiz Racionais Mc's</h1> -->
-    <div id="container-questoes"></div>
-    <button id="proxima-button" onclick="proximaQuestao()" style="display: none;">Próxima</button>
-  </div>
+    <div id="quiz-container" style="display: none;">
+      <div id="container-questoes"></div>
+      <button id="proxima-button" onclick="proximaQuestao()" style="display: none;">Próxima</button>
+    </div>
 
-  <div id="resultado" style="display: none;">
-    <h1>Quiz Finalizado!</h1>
-    <p id="pontuacao"></p>
-    <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
-  </div>  
+    <div id="resultado" style="display: none;">
+      <h1>Quiz Finalizado!</h1>
+      <p id="pontuacao"></p>
+      <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+    </div>
 </body>
 
 </html>
 <script>
   let indiceQuestaoAtual = 0;
   let pontuacaoUsuario = 0;
-  var idUsuario =  sessionStorage.ID_USUARIO;
+  var idUsuario = Number(sessionStorage.ID_USUARIO);
 
   const questoes = [
     {
@@ -125,8 +122,8 @@
   }
 
   function finalizarQuiz() {
-  
-    console.log(idUsuario , pontuacaoUsuario);
+
+    console.log(idUsuario, pontuacaoUsuario);
 
 
     document.getElementById("quiz-container").style.display = "none";
@@ -135,30 +132,34 @@
     const pontuacao = document.getElementById("pontuacao");
     pontuacao.textContent = `Você acertou ${pontuacaoUsuario} de ${questoes.length} perguntas!`;
 
-    // Enviando o valor da nova input
-    fetch(`/pontuacao/salvarPontuacao/${idUsuario}`, {
+    fetch("/pontuacao/salvarPontuacao", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        pontuacaoServer: pontuacaoUsuario,
+        pontuacaoUsuarioServer: pontuacaoUsuario,
         idUsuarioServer: idUsuario
       })
     })
       .then(function (resposta) {
-        console.log("resposta: ", resposta);
+        console.log("Resposta recebida:", resposta);
 
         if (resposta.ok) {
-          console.log('Pontuação inserida no banco de dados.')
+          return resposta.json();
         } else {
-          console.log("Erro ao inserir pontuação no banco de dados.")
+          throw new Error("Erro ao inserir pontuação no banco de dados.");
         }
       })
-      
-  } 
+      .then(function (dados) {
+        console.log("Resposta do servidor:", dados);
+        console.log("Pontuação inserida no banco de dados com sucesso.");
+      })
+      .catch(function (erro) {
+        console.error("Erro na requisição:", erro);
+      });
+
+  }
 
   function reiniciarQuiz() {
     indiceQuestaoAtual = 0;
