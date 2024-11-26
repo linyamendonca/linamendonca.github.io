@@ -10,7 +10,6 @@
 
 <body>
   <div class="container">
-    <!-- Menu Lateral -->
     <aside class="menu-lateral">
       <div class="menu-header">
         <img src="/assets/imgs/icone-logo.png" alt="Logo">
@@ -24,11 +23,24 @@
       </div>
     </aside>
 
-    <!-- Área Principal -->
     <main class="main-content">
       <header>
         <h1>Bem-vindo(a) ao Dashboard!</h1>
       </header>
+      <div class="kpis">
+        <div class="kpi">
+          <h2>Total de Usuários</h2>
+          <p id="totalUsuarios"></p>
+        </div>
+        <div class="kpi">
+          <h2>Média de Pontuação</h2>
+          <p id="MediaPontuacao"></p>
+        </div>
+        <div class="kpi">
+          <h2>Média da idade dos usuários</h2>
+          <p id="MediaIdade">0</p>
+        </div>
+      </div>
       <div class="grafico">
         <canvas id="myCanvas"></canvas>
       </div>
@@ -41,21 +53,28 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
+  var kpiTotalUsuarios = document.querySelector('#totalUsuarios');
+
+
   function carregarGrafico() {
     fetch("/pontuacao/buscarPontuacoes")
       .then(response => response.json())
       .then(data => {
         const labels = data.map(item => item.nome);  // Nomes dos usuários
         const pontuacoes = data.map(item => item.pontuacao); // Pontuações
-        
+
+        const initialColor = 'rgb(255, 0, 0)';
+
         const ctx = document.getElementById('myCanvas').getContext('2d');
-        new Chart(ctx, {
+        const chart = new Chart(ctx, {
           type: 'bar',
           data: {
             labels: labels,
             datasets: [{
               label: 'Pontuações',
               data: pontuacoes,
+              backgroundColor: initialColor,
+              borderColor: initialColor,
               borderWidth: 1
             }]
           },
@@ -73,5 +92,77 @@
       });
   }
 
-  window.onload = carregarGrafico;
+  function carregarKpis() {
+    fetch("/pontuacao/buscarTotalUsuarios", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar o total de usuários");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const totalUsuarios = data.totalUsuarios;
+
+        const kpiTotalUsuarios = document.querySelector('#totalUsuarios');
+        kpiTotalUsuarios.textContent = `${totalUsuarios}`;
+      })
+      .catch(error => {
+        console.error("Erro ao carregar o total de usuários:", error);
+      });
+
+    fetch("/pontuacao/buscarMediaPontuacao", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar o total de usuários");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const MediaPontuacao = Number(data.MediaPontuacao);
+
+        const kpiMediaPontuacao = document.querySelector('#MediaPontuacao');
+        kpiMediaPontuacao.textContent = `${MediaPontuacao.toFixed(2)}`;
+      })
+      .catch(error => {
+        console.error("Erro ao carregar o total de usuários:", error);
+      });
+
+    fetch("/pontuacao/buscarMediaIdade", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar o total de usuários");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const MediaIdade = Number(data.MediaIdade);
+
+        const kpiMediaIdade = document.querySelector('#MediaIdade');
+        kpiMediaIdade.textContent = `${MediaIdade.toFixed(0)}`;
+      })
+      .catch(error => {
+        console.error("Erro ao carregar o total de usuários:", error);
+      });
+
+  }
+
+  window.onload = () => {
+    carregarKpis();
+    carregarGrafico();
+  };
 </script>

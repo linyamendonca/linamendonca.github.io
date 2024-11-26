@@ -42,8 +42,61 @@ function buscarPontuacoes(req, res) {
         });
 }
 
+function buscarTotalUsuarios(req, res) {
+    console.log("Buscando o total de usuários...");
+
+    pontuacaoModel.buscarTotalUsuarios()
+        .then(function (resultado) {
+            console.log(resultado);
+
+            const totalUsuarios = resultado;
+
+            res.json({ totalUsuarios: totalUsuarios });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).json({ message: "Erro ao buscar total de usuários", error: erro });
+        });
+}
+
+function buscarMediaPontuacao(req, res) {
+    console.log("Buscando o total de usuários...");
+
+    pontuacaoModel.buscarMediaPontuacao()
+        .then(function (resultado) {
+            console.log(resultado);
+
+            const MediaPontuacao = resultado;
+
+            res.json({ MediaPontuacao: MediaPontuacao });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).json({ message: "Erro ao buscar total de usuários", error: erro });
+        });
+}
+function buscarMediaIdade(req, res) {
+    console.log("Buscando o total de usuários...");
+
+    pontuacaoModel.buscarMediaIdade()
+        .then(function (resultado) {
+            console.log(resultado);
+
+            const MediaIdade = resultado;
+
+            res.json({ MediaIdade: MediaIdade });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).json({ message: "Erro ao buscar total de usuários", error: erro });
+        });
+}
+
 module.exports = {
     salvarPontuacao,
-    buscarPontuacoes
-     
+    buscarPontuacoes,
+    buscarTotalUsuarios,
+    buscarMediaPontuacao,
+    buscarMediaIdade
+
 }
