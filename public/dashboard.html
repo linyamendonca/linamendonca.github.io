@@ -71,7 +71,7 @@
           data: {
             labels: labels,
             datasets: [{
-              label: 'Pontuações',
+              label: 'Pontuações dos Usuários',
               data: pontuacoes,
               backgroundColor: initialColor,
               borderColor: initialColor,
@@ -131,7 +131,7 @@
         const MediaPontuacao = Number(data.MediaPontuacao);
 
         const kpiMediaPontuacao = document.querySelector('#MediaPontuacao');
-        kpiMediaPontuacao.textContent = `${MediaPontuacao.toFixed(2)}`;
+        kpiMediaPontuacao.textContent = `${MediaPontuacao.toFixed(0)}`;
       })
       .catch(error => {
         console.error("Erro ao carregar o total de usuários:", error);
